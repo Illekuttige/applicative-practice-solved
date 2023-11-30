@@ -5,9 +5,33 @@
  */
 
 export function getGreatestDiscoveryYear(data) {
-  // Your code goes here...
-  // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  let allTheYears = data.asteroids.map(asteroidYear => asteroidYear.discoveryYear)
+  
+  let yearCount = allTheYears.reduce((acc, year) => {
+    if (acc[year]) {
+      acc[year] += 1
+    } else {
+      acc[year] = 1
+    }
+    return acc
+  }, {})
+
+let maxCount = 0
+let yearWithHighestCount = null
+
+for (let year in yearCount) {
+
+  if(yearCount[year] > maxCount) {
+    maxCount = yearCount[year]
+    yearWithHighestCount = parseInt(year)
+  }
 }
+
+return yearWithHighestCount
+
+}
+
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-18"
