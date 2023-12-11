@@ -5,9 +5,10 @@ import { data } from "../data/data";
 // Return example: 'Planet Name'
 
 export function findPlanetNameByMoon(data, moonName) {
-  let planetWithMoonName = data.planets.find(planet => planet.moons && planet.moons.includes(moonName))
-  return planetWithMoonName.name
-}
+return data.planets
+  .find(planet => planet.moons && planet.moons
+  .includes((moonName))).name
+  }
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-8"
